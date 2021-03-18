@@ -1,7 +1,9 @@
+import random
 print("\nLets play Minesweeper!")
 
 def board (rows_columns, bombs_amount):
-        grid = list((" " * rows_columns))
+        grid = list((" " * (rows_columns + 1)))
+        grid[random.randint(0, (rows_columns - 1))] = "Ó"
         return grid
 
 begin = False
@@ -21,8 +23,10 @@ while begin == False:
     else:
         begin = True
 
+print("\n\n\n") 
+
 for x in range(rows_columns):
-    print("------" * rows_columns)
-    print("|  ", *board(rows_columns, bombs_amount),sep = "  |  ")
+    print("——————" * (rows_columns + 1))
+    print(f"|{x + 1}", *board(rows_columns, bombs_amount),sep = "  |  ")
     
-print("------" * rows_columns)
+print("——————" * (rows_columns + 1))
